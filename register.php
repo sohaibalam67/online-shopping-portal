@@ -54,7 +54,7 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dp1">
-            <a class="nav-link" href="#">MEN <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">MEN </span></a>
             <div class="dp_cont">
                 
                 <div class="container">
@@ -110,7 +110,7 @@ session_start();
         <div class="dp3"><img src="image/account.png" height="25px" width="25px">
         <div class="dp_cont_3"><a href="login.php"><button class="btn btn-outline-warning">Login</button></a> <a href="register.php"><button class="btn btn-outline-info">Register</button></a></div>
         </div> &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp
-        <img src="image/bag.png" height="25px" width="25px">
+       <a href="bag.php"><img src="image/bag.png" height="25px" width="25px"></a>
       </div>
     </nav>
 

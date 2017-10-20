@@ -83,7 +83,7 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dp1">
-            <a class="nav-link" href="#">MEN <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">MEN </span></a>
             <div class="dp_cont">
             	
             	<div class="container">
@@ -140,7 +140,7 @@ session_start();
         <div class="dp_cont_3">
           
           <?php 
-          if($_SESSION["user"] == ""){
+          if(!isset($_SESSION["user"]) || $_SESSION["user"] == ""){
             echo '<a href="login.php"><button class="btn btn-outline-warning">Login</button></a> <a href="register.php"><button class="btn btn-outline-info">Register</button></a>';
           }else{
             echo '<img src="image/face.png" height="20px" width="20px"> Hi! <i>'.$_SESSION["name"].'</i><br><br><a href="profile.php"><button class="btn btn-outline-info">Profile</button></a> <a href="logout.php"><button class="btn btn-outline-warning">Logout</button></a>';
@@ -148,7 +148,7 @@ session_start();
         ?>
         </div>
         </div> &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp
-        <img src="image/bag.png" height="25px" width="25px">
+       <a href="bag.php"><img src="image/bag.png" height="25px" width="25px"></a>
       </div>
     </nav>
 
