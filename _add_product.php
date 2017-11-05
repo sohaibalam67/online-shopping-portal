@@ -1,15 +1,7 @@
-<?php
-session_start();
-if($_SESSION["user"] == ""){
-  header("Location: login.php");
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Add Product</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 	<link rel="icon" href="image/fevicon.png">
@@ -22,47 +14,35 @@ if($_SESSION["user"] == ""){
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	<style type="text/css">
-		body{
-			margin-top: 100px;
-		}
-		.login_container{
-			min-width: 100%;
-			min-height: 100vh;
-			padding-top: 140px;
-			background: -moz-linear-gradient(225deg, rgba(208,255,174,1) 0%, rgba(52,235,233,1) 100%); /* ff3.6+ */
-			background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(52,235,233,1)), color-stop(100%, rgba(208,255,174,1))); /* safari4+,chrome */
-			background: -webkit-linear-gradient(225deg, rgba(208,255,174,1) 0%, rgba(52,235,233,1) 100%); /* safari5.1+,chrome10+ */
-			background: -o-linear-gradient(225deg, rgba(208,255,174,1) 0%, rgba(52,235,233,1) 100%); /* opera 11.10+ */
-			background: -ms-linear-gradient(225deg, rgba(208,255,174,1) 0%, rgba(52,235,233,1) 100%); /* ie10+ */
-			background: linear-gradient(225deg, rgba(208,255,174,1) 0%, rgba(52,235,233,1) 100%); /* w3c */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0ffae', endColorstr='#34ebe9',GradientType=1 ); /* ie6-9 */
-		}
+	   body{
+      margin-top: 130px;
+     }
 
-		.loginn_card{
-			min-width: 400px;
-			max-width: 400px;
-			min-height: 450px;
-			max-height: 450px;
-			background-color: white;
-			border-radius: 4px;
-			box-shadow: 0px 10px 15px 2px rgba(0,0,0,0.2);
-		}
-
-    .prod_box{
-      min-height: 170px;
-      max-height: 170px;
-      min-width: 650px;
-      max-width: 650px;
-      border: 1px solid rgba(0,0,0,0.1);
+    .contents{
+      min-height: 450px;
+      min-width: 100%;
+      border: 1px solid rgba(0,0,0,0.2);
+      border-radius: 3px;
+      padding:40px 40px 40px 40px;
     }
-
-    .price_box{
-      min-width: 300px;
-      max-width: 300px;
-      min-height: 320px;
-      border: 1px solid rgba(0,0,0,0.1);
-    }
+ 
+    
+	
 	</style>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $(".gen").change(function(){
+        if($(this).val()=="men"){
+          $(".cat").html("<select name='catg'><option value='tshirt'>tshirt</option><option value='casual_shirt'>casual shirt</option><option value='formal_shirt'>Formal Shirt</option><option value='jacket'>Jacket</option><option value='blazer'>Blazer</option><option value='suit'>Suit</option><option value='jeans'>Jeans</option><option value='casual_trouser'>Casual Trouser</option><option value='formal_trouser'>Formal Trouser</option><option value='shorts'>Shorts</option><option value='track_pant'>Track Pant</option><option value='kurta'>Kurta</option><option value='shervani'>Sherwani</option><option value='nehru_jacket'>Nehru Jacket</option><option value='active_tshirt'>Active Tshirt</option></select>");
+        }else{
+          $(".cat").html("<select name='catg'><option value='tops'>Tops</option><option value='casual_shirt'>casual shirt</option><option value='tshirt'>TShirt</option><option value='jacket'>Jacket</option><option value='blazer'>Blazer</option><option value='dress'>Dresses</option><option value='jeans'>Jeans</option><option value='trouser'>Trouser</option><option value='formal_trouser'>Formal Trouser</option><option value='shorts'>Shorts</option><option value='skirt'>Skirt</option><option value='kurti'>Kurti</option><option value='suit'>Suit</option><option value='active_tshirt'>Active Tshirt</option></select>");
+        }
+      });
+
+    });
+  </script>
 </head>
 <body>
 
@@ -74,7 +54,7 @@ if($_SESSION["user"] == ""){
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dp1">
-            <a class="nav-link" href="#">MEN</span></a>
+            <a class="nav-link" href="#">MEN </span></a>
             <div class="dp_cont">
             	
             	<div class="container">
@@ -129,89 +109,105 @@ if($_SESSION["user"] == ""){
         </form>
         <div class="dp3"><img src="image/account.png" height="25px" width="25px">
         <div class="dp_cont_3">
-          
-          <?php 
+        <?php 
           if(!isset($_SESSION["user"]) || $_SESSION["user"] == ""){
             echo '<a href="login.php"><button class="btn btn-outline-warning">Login</button></a> <a href="register.php"><button class="btn btn-outline-info">Register</button></a>';
           }else{
             echo '<img src="image/face.png" height="20px" width="20px"> Hi! <i>'.$_SESSION["name"].'</i><br><br><a href="profile.php"><button class="btn btn-outline-info">Profile</button></a> <a href="logout.php"><button class="btn btn-outline-warning">Logout</button></a>';
           }
         ?>
-
+          
         </div>
         </div> &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp
-        <a href="bag.php"><img src="image/bag.png" height="25px" width="25px"></a>
+       <a href="bag.php"><img src="image/bag.png" height="25px" width="25px"></a>
       </div>
     </nav>
 
-    <div class="inner_cont2">
-    <div class="container">
-      <div style="font-family: 'Roboto', sans-serif; color: rgba(0,0,0,0.7); font-weight: 700; font-size: 15pt">My Shopping Bag</div><br><br>
-      <div class="row">
-        <div class="col-8">
-            
 
-          <div class="prod_box">
-            <div style="min-width: 120px; max-width: 120px; min-height: 170px; max-height: 170px; background: url(prod/11497528268811-Roadster-Men-Navy-Blue-Printed-Round-Neck-T-shirt-3131497528268552-1.jpg); background-size: cover; background-position: center; display: inline-block; float: left; margin-right: 20px;"></div>
-
-            <div style="font-weight: 700; color: rgba(0,0,0,0.7); padding-bottom: 10px; font-size: 10pt; padding-top: 10px">Roadster Men Navy Blue Printed Round Neck T-shirt</div>
-            <div style="font-weight: 700; color: rgba(0,0,0,0.7); padding-bottom: 15px; font-size: 10pt">Rs. 400</div>
-            <div style="font-size: 10pt; padding-bottom: 10px">Size: M</div><hr>
-            <div style="font-size: 10pt; font-weight: 700">REMOVE</div>
-          </div><br>
-
-          <div class="prod_box">
-            <div style="min-width: 120px; max-width: 120px; min-height: 170px; max-height: 170px; background: url(prod/11500457846905-Roadster-Men-Teal-Printed-Round-Neck-T-shirt-8001500457846743-1.jpg); background-size: cover; background-position: center; display: inline-block; float: left; margin-right: 20px;"></div>
-
-            <div style="font-weight: 700; color: rgba(0,0,0,0.7); padding-bottom: 10px; font-size: 10pt; padding-top: 10px">Roadster Men Blue Printed Round Neck T-shirt</div>
-            <div style="font-weight: 700; color: rgba(0,0,0,0.7); padding-bottom: 15px; font-size: 10pt">Rs. 400</div>
-            <div style="font-size: 10pt; padding-bottom: 10px">Size: M</div><hr>
-            <div style="font-size: 10pt; font-weight: 700">REMOVE</div>
-          </div>
+    <div class="inner_cont4">
+      <center>
+      <div class="container">
+        <div class="row">
+  
 
 
+          <div class="col-sm-12">
+            <div class="contents">
+              <div style="font-size: 20pt; color: rgba(0,0,0,0.5); font-weight: lighter;">Add Product</div><br>
+              <hr>
 
-
-        </div>
-
-
-        <div class="col-4">
-          
-          <div class="price_box" style="padding: 10px; padding-top: 20px;">
-            
-            <div style="font-family: 'Roboto', sans-serif; color: rgba(0,0,0,0.5); font-weight: 700; font-size: 10pt">PRICE DETAILS</div>
-            <br>
-            <table cellpadding="0" cellspacing="0" width="95%" align="center" style="font-family: 'Roboto', sans-serif; color: rgba(0,0,0,0.5); font-weight: 400; font-size: 10pt; min-height: 130px"> 
-              <tr>
-                <td>Bag Total</td><td align="right">Rs. 800</td>
-              </tr>
-              <tr>
-                <td>Estimated tax</td><td align="right">Rs. 100</td>
-              </tr>
-              <tr>
-                <td>Delivery <br><br></td><td align="right" style="color: green">FREE<br><br></td>
-              </tr>
-              <tr style="border-top: 1px solid rgba(0,0,0,0.1); font-weight: 700;">
-                <td>Order Total</td><td align="right">Rs. 900</td>
-              </tr>
-            </table>
-            <br><br>
-            <a href="delivery.php" style="text-decoration: none;"><div class="order_button" style="background: #2cd2b1; color: #fff; text-align: center; padding-top: 10px; padding-bottom: 10px; border-radius: 5px; box-shadow: 0px 10px 25px 1px rgba(0,0,0,0.1)">PLACE ORDER</div></a>
+              <br>
+              <form enctype="multipart/form-data" method="post" action="_ap_script.php">
+              <table cellpadding="0" cellspacing="0" width="500px" style="min-height: 600px">
+                <tr>
+                  <td>Product id</td>
+                  <td><input type="text" name="id" style="width: 100%"></td>
+                </tr>
+                <tr>
+                  <td>Product title</td>
+                  <td><input type="text" name="title" style="width: 100%"></td>
+                </tr>
+                <tr>
+                  <td>Product brand</td>
+                  <td><input type="text" name="brand" style="width: 100%"></td>
+                </tr>
+                <tr>
+                  <td>Product image</td>
+                  <td><input type="file" name="file" style="width: 100%"></td>
+                </tr>
+                <tr>
+                  <td>Product detail</td>
+                  <td><input type="text" name="detail" style="width: 100%"></td>
+                </tr>
+                <tr>
+                  <td>Gender</td>
+                  <td><input type="radio" name="gen" value="men" class="gen">Male &nbsp <input type="radio" name="gen" class="gen" value="women">Female</td>
+                </tr>
+                <tr>
+                  <td>category</td>
+                  <td class="cat">
+                </td>
+                </tr>
+                <tr>
+                  <td>Color</td>
+                  <td><select name="color">
+                    <option value="1">White</option>
+                    <option value="2">Black</option>
+                    <option value="3">Blue</option>
+                    <option value="4">Green</option>
+                    <option value="5">Red</option>
+                    <option value="6">Yellow</option>
+                    <option value="7">Brown</option>
+                    <option value="8">Orange</option>
+                    <option value="9">Mixed</option>
+                  </select></td>
+                </tr>
+                <tr>
+                  <td>Size Type</td>
+                  <td><select name="sizetyp"><option value="1">S,M,L,XL</option><option value="2">30,31,32</option></select></td>
+                </tr>
+                <tr>
+                  <td>Price</td>
+                  <td><input type="text" name="price" style="width: 100%" placeholder="In Rupees"></td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="right"><input type="submit" name="" value="Add" class="btn btn-info" style="box-shadow:0px 10px 25px 1px rgba(0,0,0,0.1)"></td>
+                </tr>
+              </table>
+              </form>
             </div>
+              <br>
+              <br>
+          </div>
 
         </div>
       </div>
-
+      </center>
     </div>
-    </div>
+
+    
 
 
-    <br><br><br>
 
-     <div class="webb">ECHO.</div>
-   
-    <div class="wrapper">
-      <div class="footer"></div> 
-    </div>
 </body>
 </html>

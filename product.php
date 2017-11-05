@@ -1,5 +1,48 @@
 <?php
 session_start();
+error_reporting(0);
+if(isset($_GET['item']) && $_GET['gender']){
+
+    $item=$_GET['item'];
+    $gender=$_GET['gender'];
+
+
+    $conn=mysqli_connect('localhost','root','','shopdb');
+
+ if(!$conn ) {
+      die('Could not connect');
+   }
+   
+   $sql = "SELECT id, brand, image, price FROM products WHERE category='$item' AND gen='$gender'";
+
+
+      
+   $retval = mysqli_query( $conn, $sql );
+   
+   if(! $retval) {
+      die('Could not enter data');
+   }
+   
+  $i=0;
+   while($row = mysqli_fetch_assoc($retval)){
+
+    $arr[$i]=$row;
+    $i++;
+}
+
+
+   mysqli_close($conn);
+
+
+
+
+
+}else{
+    header("Location: index.php");
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -133,7 +176,80 @@ session_start();
     		</div>
     	</div>
  		<div class="col cont_list">
- 			<div class="head_bar"><div class="prod_head" style="float: left;">Men Tshirt</div> 
+ 			<div class="head_bar"><div class="prod_head" style="float: left;">
+            
+            <?php
+
+            if($item=='tshirt' && $gender=='men'){
+                echo 'Men Tshirt';
+            }elseif($item=='casual_shirt' && $gender=='men'){
+                echo 'Men Casual Shirt';
+            }elseif($item=='formal_shirt' && $gender=='men'){
+                echo 'Men Formal Shirt';
+            }elseif($item=='jacket' && $gender=='men'){
+                echo 'Men Jacket';
+            }elseif($item=='blazer' && $gender=='men'){
+                echo 'Men Blazer';
+            }elseif($item=='suit' && $gender=='men'){
+                echo 'Men Suit';
+            }elseif($item=='jeans' && $gender=='men'){
+                echo 'Men Jeans';
+            }elseif($item=='casual_trouser' && $gender=='men'){
+                echo 'Men Casual Trouser';
+            }elseif($item=='formal_trouser' && $gender=='men'){
+                echo 'Men Formal Trouser';
+            }elseif($item=='shorts' && $gender=='men'){
+                echo 'Men Shorts';
+            }elseif($item=='track_pant' && $gender=='men'){
+                echo 'Men Track Pant';
+            }elseif($item=='active_tshirt' && $gender=='men'){
+                echo 'Men Active Tshirt';
+            }elseif($item=='track_pant' && $gender=='men'){
+                echo 'Men Track Pant';
+            }elseif($item=='kurta' && $gender=='men'){
+                echo 'Men Kurta';
+            }elseif($item=='shervani' && $gender=='men'){
+                echo 'Men Shervani';
+            }elseif($item=='nehru_jacket' && $gender=='men'){
+                echo 'Men Nehru Jacket';
+            }elseif($item=='tops' && $gender=='women'){
+                echo 'Women Tops';
+            }elseif($item=='casual_shirt' && $gender=='women'){
+                echo 'Women Casual Shirt';
+            }elseif($item=='tshirt' && $gender=='women'){
+                echo 'Women Tshirt';
+            }elseif($item=='jacket' && $gender=='women'){
+                echo 'Women Jacket';
+            }elseif($item=='blazer' && $gender=='women'){
+                echo 'Women Blazer';
+            }elseif($item=='dress' && $gender=='women'){
+                echo 'Women Dresses';
+            }elseif($item=='jeans' && $gender=='women'){
+                echo 'Women Jeans';
+            }elseif($item=='trouser' && $gender=='women'){
+                echo 'Women Trousers';
+            }elseif($item=='skirt' && $gender=='women'){
+                echo 'Women Skirts';
+            }elseif($item=='shorts' && $gender=='women'){
+                echo 'Women Shorts';
+            }elseif($item=='active_tshirt' && $gender=='women'){
+                echo 'Women Active Tshirts';
+            }elseif($item=='track_pant' && $gender=='women'){
+                echo 'Women Track Pants';
+            }elseif($item=='kurti' && $gender=='women'){
+                echo 'Women Kurti';
+            }elseif($item=='suit' && $gender=='women'){
+                echo 'Women Suits';
+            }else{
+                echo 'Products';
+            }
+
+
+
+
+            ?>
+
+            </div> 
  			<div style="float: right">
  			<select class="custom-select">
   			<option selected disabled>Sort By:</option>
@@ -143,68 +259,25 @@ session_start();
 			</div><br><br><hr>
 			<br>
 
-					<div class="product">
-					<div class="card" style="width: 180px">
-		  			<img class="card-img-top" src="prod/11497260027908-Roadster-Men-Maroon-Printed-Round-Neck-T-shirt-9931497260027848-1.jpg" alt="Card image cap">
-		  			<div class="card-body">
-		    		<div class="card_brand">Roadster</div><div class="card_price">Rs. 400</div><div class="add_cart">ADD TO BAG</div>
-		  			</div>
-					</div>
-					</div>
+					
 
-					<div class="product">
-					<div class="card" style="width: 180px">
-		  			<img class="card-img-top" src="prod/11497528268811-Roadster-Men-Navy-Blue-Printed-Round-Neck-T-shirt-3131497528268552-1.jpg" alt="Card image cap">
-		  			<div class="card-body">
-		    		<div class="card_brand">Roadster</div><div class="card_price">Rs. 400</div><div class="add_cart">ADD TO BAG</div>
-		  			</div>
-					</div>
-					</div>
+					<?php
 
-					<div class="product">
-					<div class="card" style="width: 180px">
-		  			<img class="card-img-top" src="prod/11500448711136-Roadster-Men-Tshirts-1701500448710920-1.jpg" alt="Card image cap">
-		  			<div class="card-body">
-		    		<div class="card_brand">Roadster</div><div class="card_price">Rs. 400</div><div class="add_cart">ADD TO BAG</div>
-		  			</div>
-					</div>
-					</div>
+                    try{
+                        foreach ($arr as $prodd) {
+                        echo '<div class="product">
+                    <div class="card" style="width: 180px"><img class="card-img-top" src="prod/'.$prodd["image"].'" alt="Card image cap"><div class="card-body">
+                    <div class="card_brand">'.$prodd["brand"].'</div><div class="card_price">Rs. '.$prodd["price"].'</div><a href="display.php?id='.$prodd["id"].'" style="text-decoration: none"><div class="add_cart">VIEW</div></a></div></div></div>';
+                    }
 
-					<div class="product">
-					<div class="card" style="width: 180px">
-		  			<img class="card-img-top" src="prod/11500457838239-Roadster-Men-Olive-Green-Printed-Round-Neck-T-shirt-9901500457838027-1.jpg" alt="Card image cap">
-		  			<div class="card-body">
-		    		<div class="card_brand">Roadster</div><div class="card_price">Rs. 400</div><div class="add_cart">ADD TO BAG</div>
-		  			</div>
-					</div>
-					</div>
+                    }catch(Exception $e){
+                        echo 'No products found.';
+                    }
 
-					<div class="product">
-					<div class="card" style="width: 180px">
-		  			<img class="card-img-top" src="prod/11500457846905-Roadster-Men-Teal-Printed-Round-Neck-T-shirt-8001500457846743-1.jpg" alt="Card image cap">
-		  			<div class="card-body">
-		    		<div class="card_brand">Roadster</div><div class="card_price">Rs. 400</div><div class="add_cart">ADD TO BAG</div>
-		  			</div>
-					</div>
-					</div>
+                    ?>
 
-					<div class="product">
-					<div class="card" style="width: 180px">
-		  			<img class="card-img-top" src="prod/11500887815070-Roadster-Men-Tshirts-8321500887814835-1.jpg" alt="Card image cap">
-		  			<div class="card-body">
-		    		<div class="card_brand">Roadster</div><div class="card_price">Rs. 400</div><div class="add_cart">ADD TO BAG</div>
-		  			</div>
-					</div>
-					</div>
-
-					<div class="product">
-					<div class="card" style="width: 180px">
-		  			<img class="card-img-top" src="prod/11501761621353-Roadster-Men-Blue-Printed-Round-Neck-T-shirt-5331501761621129-1.jpg" alt="Card image cap">
-		  			<div class="card-body">
-		    		<div class="card_brand">Roadster</div><div class="card_price">Rs. 400</div><div class="add_cart">ADD TO BAG</div>
-		  			</div>
-					</div>
-					</div>
+                    
+                    
 
 
 					

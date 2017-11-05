@@ -1,5 +1,52 @@
 <?php
 session_start();
+error_reporting(0);
+if(isset($_GET['id'])){
+
+    $id=$_GET['id'];
+
+    $conn=mysqli_connect('localhost','root','','shopdb');
+
+ if(!$conn ) {
+      die('Could not connect');
+   }
+   
+   $sql = "SELECT * FROM products WHERE id='$id'";
+
+
+      
+   $retval = mysqli_query( $conn, $sql );
+   
+   if(! $retval) {
+      die('Could not enter data');
+   }
+   
+  $row = mysqli_fetch_array($retval, MYSQLI_BOTH);
+
+      $id=$row[0];
+      $title=$row[1];
+      $brand=$row[2];
+      $image=$row[3];
+      $detail=$row[4];
+      $gender=$row[5];
+      $category=$row[6];
+      $color=$row[7];
+      $size_type=$row[8];
+      $price=$row[9];
+
+
+   mysqli_close($conn);
+
+
+
+
+
+}else{
+    header("Location: index.php");
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -104,13 +151,13 @@ session_start();
 
 
     <div class="container inner_cont2">
-    	<div class="tree">Home / Clothing / Men Clothing / Tshirts / Roadster</div><br>
+    	<div class="tree"><?php echo 'Home / Clothing / '.$gender.' Clothing / '.$category.' / '.$brand.' ';?></div><br>
     	<br>
     	<div class="row">
-    		<div class=".col-6"><img src="prod/11497528268811-Roadster-Men-Navy-Blue-Printed-Round-Neck-T-shirt-3131497528268552-1.jpg" class="prod_img"><br><div style="font-size: 10pt">Product code: 1751654</div></div>
-    		<div class=".col-6 prd_dsc">
-    			<div class="prod_title">Roadster Men Navy Blue Printed Round Neck T-shirt</div>
-    			<div class="prod_price">Rs. 400</div><br><hr>
+    		<div class="col-6"><img src="prod/<?php echo $image; ?>" class="prod_img"><br><div style="font-size: 10pt">Product code: <?php echo $id; ?></div></div>
+    		<div class="col-6 prd_dsc">
+    			<div class="prod_title"><?php echo $title; ?></div>
+    			<div class="prod_price">Rs. <?php echo $price; ?></div><br><hr>
     			<div class="prod_size">SELECT SIZE</div>
     			<div class="select_size">
 		    			<label class="custom-control custom-radio">
@@ -137,10 +184,10 @@ session_start();
 						<span class="custom-control-description">XL</span>
 						</label> &nbsp &nbsp&nbsp &nbsp
     			</div><br><br>
-    			<div class="add_bag"><button type="button" class="btn btn-info"><span class="add_bag_inner">ADD TO BAG</span></button></div><br>
+    			<div class="add_bag"><button type="button" class="btn btn-info" style="box-shadow:0px 10px 25px 1px rgba(0,0,0,0.1)"><span class="add_bag_inner">ADD TO BAG</span></button></div><br>
     			<hr>
     			<div class="prod_detail_head">PRODUCT DETAILS</div>
-    			<div class="prod_detail">Navy blue printed T-shirt, has a round neck, short sleeves</div>
+    			<div class="prod_detail"><?php echo $detail; ?></div>
     			<br><br><hr><br>
     			<div class="extra_info">
     				Tax: Applicable tax on the basis of exact location & discount will be charged at the time of checkout <br>
