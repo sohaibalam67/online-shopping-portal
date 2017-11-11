@@ -266,7 +266,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05C1FF', end
 	font-weight: 600;
 }
 
-.prod_size, .prod_detail_head{
+.prod_size, .prod_detail_head, .prod_qnty{
 	font-family: 'Roboto', sans-serif;
 	font-size: 11pt;
 	font-weight: bold;

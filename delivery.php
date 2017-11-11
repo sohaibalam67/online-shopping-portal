@@ -9,7 +9,7 @@ if($_SESSION["user"] == ""){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Delivery</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 	<link rel="icon" href="image/fevicon.png">
@@ -25,29 +25,7 @@ if($_SESSION["user"] == ""){
 		body{
 			margin-top: 100px;
 		}
-		.login_container{
-			min-width: 100%;
-			min-height: 100vh;
-			padding-top: 140px;
-			background: -moz-linear-gradient(225deg, rgba(208,255,174,1) 0%, rgba(52,235,233,1) 100%); /* ff3.6+ */
-			background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(52,235,233,1)), color-stop(100%, rgba(208,255,174,1))); /* safari4+,chrome */
-			background: -webkit-linear-gradient(225deg, rgba(208,255,174,1) 0%, rgba(52,235,233,1) 100%); /* safari5.1+,chrome10+ */
-			background: -o-linear-gradient(225deg, rgba(208,255,174,1) 0%, rgba(52,235,233,1) 100%); /* opera 11.10+ */
-			background: -ms-linear-gradient(225deg, rgba(208,255,174,1) 0%, rgba(52,235,233,1) 100%); /* ie10+ */
-			background: linear-gradient(225deg, rgba(208,255,174,1) 0%, rgba(52,235,233,1) 100%); /* w3c */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0ffae', endColorstr='#34ebe9',GradientType=1 ); /* ie6-9 */
-		}
-
-		.loginn_card{
-			min-width: 400px;
-			max-width: 400px;
-			min-height: 450px;
-			max-height: 450px;
-			background-color: white;
-			border-radius: 4px;
-			box-shadow: 0px 10px 15px 2px rgba(0,0,0,0.2);
-		}
-
+		
     .prod_box{
       min-height: 170px;
       min-width: 650px;
@@ -59,7 +37,7 @@ if($_SESSION["user"] == ""){
     .price_box{
       min-width: 300px;
       max-width: 300px;
-      min-height: 320px;
+      min-height: 150px;
       border: 1px solid rgba(0,0,0,0.1);
     }
 
@@ -157,28 +135,28 @@ if($_SESSION["user"] == ""){
             
 
          <div class="prod_box">
-          <form>
+          <form action="checkout.php" method="post">
           <span class="label" style="margin-right: 160px">Pincode</span><span class="label">Phone</span> <br>
-          <input type="text" name="pincode" style="width: 200px">
-          <input type="text" name="phone" style="width: 200px">
+          <input type="text" name="pincode" required style="width: 200px">
+          <input type="text" name="phone" required style="width: 200px">
           <br><br>
 
           <span class="label">Locality/Town</span> <br>
-          <input type="text" name="locality" style="width: 405px">
+          <input type="text" name="town" required style="width: 405px">
 
           <br><br>
 
           <span class="label" style="margin-right: 140px">City/District</span><span class="label">State</span> <br>
-          <input type="text" name="locality" style="width: 200px">
-          <input type="text" name="state" style="width: 200px">
+          <input type="text" name="dist" required style="width: 200px">
+          <input type="text" name="state" required style="width: 200px">
           <br><br>
 
           <span class="label">Name</span> <br>
-          <input type="text" name="name" style="width: 405px">
+          <input type="text" name="name" required style="width: 405px">
           <br><br>
 
            <span class="label">Address</span> <br>
-          <textarea name="address" style="width: 405px; height: 100px"></textarea>
+          <textarea name="address" required style="width: 405px; height: 100px"></textarea>
           <br><br>
           <input type="submit" value="Submit" style="background: #2cd2b1; color: #fff; text-align: center; padding-top: 10px; padding-bottom: 10px; border-radius: 5px; box-shadow: 0px 10px 25px 1px rgba(0,0,0,0.1); border: 0px solid white; padding-left: 20px; padding-right: 20px">
           </form>
@@ -196,22 +174,11 @@ if($_SESSION["user"] == ""){
           
           <div class="price_box" style="padding: 10px; padding-top: 20px">
             
-            <div style="font-family: 'Roboto', sans-serif; color: rgba(0,0,0,0.5); font-weight: 700; font-size: 10pt">PRICE DETAILS</div>
+            <div style="font-family: 'Roboto', sans-serif; color: rgba(0,0,0,0.5); font-weight: 700; font-size: 10pt">INFO</div>
             <br>
-            <table cellpadding="0" cellspacing="0" width="95%" align="center" style="font-family: 'Roboto', sans-serif; color: rgba(0,0,0,0.5); font-weight: 400; font-size: 10pt; min-height: 130px"> 
-              <tr>
-                <td>Bag Total</td><td align="right">Rs. 800</td>
-              </tr>
-              <tr>
-                <td>Estimated tax</td><td align="right">Rs. 100</td>
-              </tr>
-              <tr>
-                <td>Delivery <br><br></td><td align="right" style="color: green">FREE<br><br></td>
-              </tr>
-              <tr style="border-top: 1px solid rgba(0,0,0,0.1); font-weight: 700;">
-                <td>Order Total</td><td align="right">Rs. 900</td>
-              </tr>
-            </table>
+            <b>Total : Rs. <?php echo $_SESSION["total_cost"];?> </b><br>
+
+            Fill the details and click on 'submit' to place the order.
           </div>
 
         </div>

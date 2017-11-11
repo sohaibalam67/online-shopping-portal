@@ -164,8 +164,9 @@ $conn=mysqli_connect('localhost','root','','shopdb');
     <div class="inner_cont4">
       <div class="container">
         <div class="row">
-          <div class="col-sm-4">
-            <div class="profile_pic" style="float: right; background: url(dp/<?php echo $pic?>) 50% 50%; background-size: cover; box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1)"></div><br>
+          <div class="col-sm-4" align="right">
+            <div class="profile_pic" style=" background: url(dp/<?php echo $pic?>) 50% 50%; background-size: cover; box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1)"></div>
+            <span style="padding-left: 60px; font-size: 13pt; text-transform: uppercase; font-family: 'Roboto', sans-serif; color: rgba(0,0,0,0.7); font-weight: lighter;"><b><?php echo $_SESSION["name"];?></b></span>
           </div>
 
 
@@ -191,11 +192,14 @@ $conn=mysqli_connect('localhost','root','','shopdb');
                   <td><?php echo $phone; ?></td>
                 </tr>
                 <tr>
-                  <td colspan="2"><a href="edit_profile.php"><button class="btn btn-outline-info">Edit Profile</button></a></td>
+                  <td colspan="2"><a href="edit_profile.php"><button class="btn btn-outline-info">Edit Profile</button></a> &nbsp <a href="orders.php"><button class="btn btn-outline-info">Track Order</button></a></td>
                 </tr>
               </table>
+
             </div>
+
           </div>
+
         </div>
       </div>
     </div>

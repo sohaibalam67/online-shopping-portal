@@ -123,13 +123,13 @@ session_start();
 
 	    			<div style="max-width: 320px">
 	    			<form method="post" action="register_script.php">
-                        <input type="text" name="name" placeholder="Name" class="form-control" style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; min-height: 50px; border-left-color: #f492ac; border-top-color: #f492ac; border-right-color: #f492ac">
-	    				<input type="text" name="username" placeholder="Username" class="form-control" style="border-radius: 0px ;min-height: 50px; border-left-color: #f492ac; border-right-color: #f492ac">
-                        <input type="password" name="password" placeholder="Password" class="form-control" style="border-radius: 0px ;min-height: 50px; border-left-color: #f492ac; border-right-color: #f492ac">
-                        <input type="password" name="conf_password" placeholder="Confirm Password" class="form-control" style="border-radius: 0px ;min-height: 50px; border-left-color: #f492ac; border-right-color: #f492ac">
-	    				<input type="number" name="phone" placeholder="Phone" class="form-control" style="border-top-left-radius: 0px; border-top-right-radius: 0px; min-height: 50px; border-left-color: #f492ac; border-right-color: #f492ac; border-bottom-color: #f492ac">
+                        <input type="text" name="name" placeholder="Name" required class="form-control" style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; min-height: 50px; border-left-color: #f492ac; border-top-color: #f492ac; border-right-color: #f492ac">
+	    				<input type="text" name="username" placeholder="Username" required class="form-control" style="border-radius: 0px ;min-height: 50px; border-left-color: #f492ac; border-right-color: #f492ac">
+                        <input type="password" name="password" placeholder="Password" required class="form-control" style="border-radius: 0px ;min-height: 50px; border-left-color: #f492ac; border-right-color: #f492ac">
+                        <input type="password" name="conf_password" placeholder="Confirm Password" required class="form-control" style="border-radius: 0px ;min-height: 50px; border-left-color: #f492ac; border-right-color: #f492ac">
+	    				<input type="number" name="phone" placeholder="Phone" required class="form-control" style="border-top-left-radius: 0px; border-top-right-radius: 0px; min-height: 50px; border-left-color: #f492ac; border-right-color: #f492ac; border-bottom-color: #f492ac">
 	    				<br>
-	    				<input type="submit" name="submit" value="REGISTER" style="min-height: 50px; background-color: #ef5585; color: #fff; border: 0px solid white; min-width: 320px; border-radius: 3px; font-size: 10pt; font-weight: 600">
+	    				<input type="submit" name="submit" value="REGISTER"  style="min-height: 50px; background-color: #ef5585; color: #fff; border: 0px solid white; min-width: 320px; border-radius: 3px; font-size: 10pt; font-weight: 600">
 	    			</form>
 	    			<br><div style="font-size: 10pt;">Have an account? <a href="login.php" style="color: #8869a6">Login here</a></div>
 	    			</div><br>

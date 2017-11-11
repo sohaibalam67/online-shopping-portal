@@ -141,23 +141,23 @@
               <table cellpadding="0" cellspacing="0" width="500px" style="min-height: 600px">
                 <tr>
                   <td>Product id</td>
-                  <td><input type="text" name="id" style="width: 100%"></td>
+                  <td><input type="text" name="id" required style="width: 100%"></td>
                 </tr>
                 <tr>
                   <td>Product title</td>
-                  <td><input type="text" name="title" style="width: 100%"></td>
+                  <td><input type="text" name="title" required style="width: 100%"></td>
                 </tr>
                 <tr>
                   <td>Product brand</td>
-                  <td><input type="text" name="brand" style="width: 100%"></td>
+                  <td><input type="text" name="brand" required style="width: 100%"></td>
                 </tr>
                 <tr>
                   <td>Product image</td>
-                  <td><input type="file" name="file" style="width: 100%"></td>
+                  <td><input type="file" name="file" required style="width: 100%"></td>
                 </tr>
                 <tr>
                   <td>Product detail</td>
-                  <td><input type="text" name="detail" style="width: 100%"></td>
+                  <td><input type="text" name="detail" required style="width: 100%"></td>
                 </tr>
                 <tr>
                   <td>Gender</td>
@@ -188,7 +188,7 @@
                 </tr>
                 <tr>
                   <td>Price</td>
-                  <td><input type="text" name="price" style="width: 100%" placeholder="In Rupees"></td>
+                  <td><input type="text" name="price" required style="width: 100%" placeholder="In Rupees"></td>
                 </tr>
                 <tr>
                   <td colspan="2" align="right"><input type="submit" name="" value="Add" class="btn btn-info" style="box-shadow:0px 10px 25px 1px rgba(0,0,0,0.1)"></td>

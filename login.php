@@ -129,8 +129,8 @@ if($_SESSION["user"] != ""){
 
 	    			<div style="max-width: 320px">
 	    			<form method="post" action="auth.php">
-	    				<input type="text" name="username" placeholder="Username" class="form-control" style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; min-height: 50px; border-left-color: #f492ac; border-top-color: #f492ac; border-right-color: #f492ac">
-	    				<input type="password" name="password" placeholder="Password" class="form-control" style="border-top-left-radius: 0px; border-top-right-radius: 0px; min-height: 50px; border-left-color: #f492ac; border-right-color: #f492ac; border-bottom-color: #f492ac">
+	    				<input type="text" name="username" placeholder="Username" required class="form-control" style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; min-height: 50px; border-left-color: #f492ac; border-top-color: #f492ac; border-right-color: #f492ac">
+	    				<input type="password" name="password" placeholder="Password" required class="form-control" style="border-top-left-radius: 0px; border-top-right-radius: 0px; min-height: 50px; border-left-color: #f492ac; border-right-color: #f492ac; border-bottom-color: #f492ac">
 	    				<br><br>
 	    				<input type="submit" name="submit" value="LOG IN" style="min-height: 50px; background-color: #ef5585; color: #fff; border: 0px solid white; min-width: 320px; border-radius: 3px; font-size: 10pt; font-weight: 600">
 	    			</form>

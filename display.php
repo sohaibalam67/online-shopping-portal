@@ -160,31 +160,72 @@ if(isset($_GET['id'])){
     			<div class="prod_price">Rs. <?php echo $price; ?></div><br><hr>
     			<div class="prod_size">SELECT SIZE</div>
     			<div class="select_size">
-		    			<label class="custom-control custom-radio">
-						<input id="radio1" name="size" type="radio" class="custom-control-input">
-						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">S</span>
-						</label> &nbsp &nbsp
 
-    					<label class="custom-control custom-radio">
-						<input id="radio1" name="size" type="radio" class="custom-control-input">
-						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">M</span>
-						</label> &nbsp &nbsp
+            <form action="add_to_bag.php" method="post">
+              <input type="hidden" name="prd_id" value="<?php echo $id; ?>">
+            <?php 
 
-    					<label class="custom-control custom-radio">
-						<input id="radio1" name="size" type="radio" class="custom-control-input">
-						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">L</span>
-						</label> &nbsp &nbsp&nbsp &nbsp
+            if($size_type==1){
+              echo '<label class="custom-control custom-radio">
+            <input id="radio1" name="size" type="radio" value="S" required class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">S</span>
+            </label> &nbsp &nbsp
 
-    					<label class="custom-control custom-radio">
-						<input id="radio1" name="size" type="radio" class="custom-control-input">
-						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">XL</span>
-						</label> &nbsp &nbsp&nbsp &nbsp
-    			</div><br><br>
-    			<div class="add_bag"><button type="button" class="btn btn-info" style="box-shadow:0px 10px 25px 1px rgba(0,0,0,0.1)"><span class="add_bag_inner">ADD TO BAG</span></button></div><br>
+              <label class="custom-control custom-radio">
+            <input id="radio1" name="size" type="radio" value="M" required class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">M</span>
+            </label> &nbsp &nbsp
+
+              <label class="custom-control custom-radio">
+            <input id="radio1" name="size" type="radio" value="L" required class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">L</span>
+            </label> &nbsp &nbsp&nbsp &nbsp
+
+              <label class="custom-control custom-radio">
+            <input id="radio1" name="size" type="radio" value="XL" required class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">XL</span>
+            </label> &nbsp &nbsp&nbsp &nbsp';
+
+            }else{
+
+              echo '<label class="custom-control custom-radio">
+            <input id="radio1" name="size" type="radio" value="28" required class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">28</span>
+            </label> &nbsp &nbsp
+
+              <label class="custom-control custom-radio">
+            <input id="radio1" name="size" type="radio" value="30" required class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">30</span>
+            </label> &nbsp &nbsp
+
+              <label class="custom-control custom-radio">
+            <input id="radio1" name="size" type="radio" value="32" required class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">32</span>
+            </label> &nbsp &nbsp&nbsp &nbsp
+
+              <label class="custom-control custom-radio">
+            <input id="radio1" name="size" type="radio" value="34" required class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">34</span>
+            </label> &nbsp &nbsp&nbsp &nbsp';
+            }
+
+            ?>
+
+		    			
+    			</div><br>
+          <div class="prod_qnty">SELECT QUANTITY</div>
+          <input type="number" name="qty" value="1" style="max-width: 50px">
+
+          <br><br>
+    			<div class="add_bag"><input type="submit" class="btn btn-info add_bag_inner" value="ADD TO BAG" style="box-shadow:0px 10px 25px 1px rgba(0,0,0,0.1)"></div><br></form>
     			<hr>
     			<div class="prod_detail_head">PRODUCT DETAILS</div>
     			<div class="prod_detail"><?php echo $detail; ?></div>
