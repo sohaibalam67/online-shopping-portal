@@ -14,7 +14,7 @@ $conn=mysqli_connect('localhost','root','','shopdb');
       die('Could not connect');
    }
    
-   $sql = "SELECT prod_id, size, qty, title, price, image, status, order_id FROM orders,products WHERE username='$curr_user' AND orders.prod_id=products.id";
+   $sql = "SELECT prod_id, size, qty, title, price, image, status, order_id FROM orders,products WHERE username='$curr_user' AND orders.prod_id=products.id AND (status=0 OR status=1)";
 
 
       
