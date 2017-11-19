@@ -1,9 +1,10 @@
 <?php
-
+error_reporting(0);
 session_start();
-if($_SESSION["user"] == ""){
+if(!isset($_SESSION["user"])){
   header("Location: login.php");
 }
+
 
 $curr_user = $_SESSION["user"];
 $total=0;
@@ -194,10 +195,6 @@ $conn=mysqli_connect('localhost','root','','shopdb');
 
     <br><br><br>
 
-     <div class="webb">ECHO.</div>
-   
-    <div class="wrapper">
-      <div class="footer"></div> 
-    </div>
+     
 </body>
 </html>

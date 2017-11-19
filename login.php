@@ -1,8 +1,9 @@
 <?php
+error_reporting(0);
 session_start();
 
-if($_SESSION["user"] != ""){
-  header('Location: profile.php');
+if(isset($_SESSION["user"])){
+  header("Location: profile.php");
 }
 
 ?>

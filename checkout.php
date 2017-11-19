@@ -1,6 +1,8 @@
 <?php
-
+error_reporting(0);
 session_start();
+
+
 if(isset($_POST["pincode"]) && isset($_POST["phone"]) && isset($_POST["town"]) && isset($_POST["dist"]) && isset($_POST["state"]) && isset($_POST["name"]) && isset($_POST["address"]) ){
 
 $pincode=$_POST["pincode"];

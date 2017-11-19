@@ -1,8 +1,9 @@
 <?php
-
+error_reporting(0);
 session_start();
-if($_SESSION["user"] == ""){
-  header("Location: login.php");
+
+if($_SESSION["admin"]!=$_SESSION["user"]){
+  header("Location:profile.php");
 }
 
 $curr_user = $_SESSION["user"];

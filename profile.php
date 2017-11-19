@@ -1,6 +1,7 @@
 <?php
+error_reporting(0);
 session_start();
-if($_SESSION["user"] == ""){
+if(!isset($_SESSION["user"])){
   header('Location: login.php');
 }
 
@@ -195,8 +196,36 @@ $conn=mysqli_connect('localhost','root','','shopdb');
                   <td colspan="2"><a href="edit_profile.php"><button class="btn btn-outline-info">Edit Profile</button></a> &nbsp <a href="orders.php"><button class="btn btn-outline-info">Track Order</button></a></td>
                 </tr>
               </table>
+              
 
-            </div>
+            </div><br>
+
+              <?php
+                try{
+                  if($_SESSION["admin"]==$_SESSION["user"]){
+
+                    echo '<div class="contents" style="min-height:250px;">
+              <div style="font-size: 20pt; color: rgba(0,0,0,0.5); font-weight: lighter;">Admin Panel</div><br>
+              <hr>
+              <table border="0" cellpadding="0" cellspacing="0" align="left" width="70%" height="100px" style="color: rgba(0,0,0,0.6);">
+                <tr>
+                  <td>Add Product </td>
+                  <td><a href="_add_product.php"  class="btn btn-outline-info">Add</a></td>
+                </tr>
+                <tr>
+                  <td>Order Status</td>
+                  <td><a href="_status.php"  class="btn btn-outline-info">Status</a></td>
+                </tr>
+              </table>
+            </div>';
+                }
+              }catch(Exception $e){
+
+              }
+              ?>
+              
+              <br><br>
+
 
           </div>
 

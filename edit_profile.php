@@ -1,5 +1,11 @@
 <?php
+error_reporting(0);
 session_start();
+
+if(!isset($_SESSION["user"])){
+  header("Location: login.php");
+}
+
 
 
 if(isset($_POST["name"]) && isset($_POST["gender"]) && isset($_POST["phone"]) && isset($_FILES['file']['name'])){

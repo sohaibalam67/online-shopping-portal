@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 
 if(isset($_POST["name"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["conf_password"]) && isset($_POST["phone"]) ){
 

@@ -1,3 +1,11 @@
+<?php
+error_reporting(0);
+session_start();
+if($_SESSION["admin"]!=$_SESSION["user"]){
+  header("Location:profile.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

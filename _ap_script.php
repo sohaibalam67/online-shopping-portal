@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 if(isset($_POST["id"]) && isset($_POST["title"]) && isset($_POST["brand"]) && isset($_FILES['file']['name']) && isset($_POST["detail"]) && isset($_POST["gen"]) && isset($_POST["color"]) && isset($_POST["sizetyp"]) && isset($_POST["price"]) && isset($_POST["catg"])){
 
 $id=$_POST["id"];

@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 if(isset($_GET["od"]) && isset($_GET["pi"]) && isset($_GET["act"]) ){
 
 $od=$_GET["od"];
