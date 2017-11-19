@@ -180,7 +180,7 @@ $conn=mysqli_connect('localhost','root','','shopdb');
           $_SESSION["total_cost"]=$total+$tax;
 
           if($_SESSION["total_cost"]==0){
-            echo "The bag is currently empty.";
+            echo "<center><img src='image/empty_cart.png' style='transform:scale(0.5)'><br><h2>The Bag is Empty</h2></center>";
           }
 
           ?>
