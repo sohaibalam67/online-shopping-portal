@@ -45,19 +45,12 @@ $conn=mysqli_connect('localhost','root','','shopdb');
 
 
 
-
-
-
-
-
-
-
 $sql4 = "DELETE FROM bag WHERE username='$curr_user'";
 
    $retval4 = mysqli_query( $conn, $sql4 );
    
    if(!$retval4) {
-      die('Could not enter data');
+      die('Could not delete data');
    }
 
 
@@ -70,8 +63,6 @@ $sql4 = "DELETE FROM bag WHERE username='$curr_user'";
    die();
    }
   header("Location: bag.php");
-
-
 
 
 ?>

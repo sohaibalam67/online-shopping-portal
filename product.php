@@ -20,7 +20,7 @@ if(isset($_GET['item']) && $_GET['gender']){
    $retval = mysqli_query( $conn, $sql );
    
    if(! $retval) {
-      die('Could not enter data');
+      die('Could not select data');
    }
    
   $i=0;

@@ -20,7 +20,7 @@ $conn=mysqli_connect('localhost','root','','shopdb');
    $retval = mysqli_query( $conn, $sql );
    
    if(!$retval) {
-      die('Could not enter data');
+      die('Could not update data');
    }
    
   

@@ -19,7 +19,7 @@ if(isset($_GET['id'])){
    $retval = mysqli_query( $conn, $sql );
    
    if(! $retval) {
-      die('Could not enter data');
+      die('Could not select data');
    }
    
   $row = mysqli_fetch_array($retval, MYSQLI_BOTH);
