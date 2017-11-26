@@ -176,7 +176,7 @@ $conn=mysqli_connect('localhost','root','','shopdb');
 
 
           foreach ($arr as $prodd) {
-            $total = $total+$prodd["price"];
+            $total = $total+($prodd["price"]*$prodd["qty"]);
             echo '<div class="prod_box">
             <div style="min-width: 120px; max-width: 120px; min-height: 170px; max-height: 170px; background: url(prod/'.$prodd["image"].'); background-size: cover; background-position: center; display: inline-block; float: left; margin-right: 20px;"></div>
 
