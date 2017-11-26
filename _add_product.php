@@ -33,9 +33,6 @@ if($_SESSION["admin"]!=$_SESSION["user"]){
       border-radius: 3px;
       padding:40px 40px 40px 40px;
     }
- 
-    
-	
 	</style>
 
   <script type="text/javascript">

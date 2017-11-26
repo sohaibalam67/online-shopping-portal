@@ -26,7 +26,7 @@ if(isset($_GET['item']) && $_GET['gender']){
   $i=0;
    while($row = mysqli_fetch_assoc($retval)){
 
-    $arr[$i]=$row;
+    $arr[$i]=$row;+ 
     $i++;
 }
 

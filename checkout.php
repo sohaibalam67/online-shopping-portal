@@ -59,7 +59,7 @@ $sql4 = "DELETE FROM bag WHERE username='$curr_user'";
    
    mysqli_close($conn);
 
-   header("Location: bag.php");
+   header("Location: bag.php?stat=1");
    die();
    }
   header("Location: bag.php");

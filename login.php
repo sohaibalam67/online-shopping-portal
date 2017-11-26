@@ -50,6 +50,24 @@ if(isset($_SESSION["user"])){
 			box-shadow: 0px 10px 15px 2px rgba(0,0,0,0.2);
 		}
 	</style>
+
+  <script type="text/javascript">
+    <?php
+      if(isset($_GET["e"])){
+        if($_GET["e"]==1){
+          echo "alert('The username or password is incorrect.')";
+        }
+
+        if($_GET["e"]==2){
+          echo "alert('You are sucessfully registered, Please login to continue.')";
+        }
+
+        if($_GET["e"]==3){
+          echo "alert('Some error occured.')";
+        }
+      }
+    ?>
+  </script>
 </head>
 <body>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2017 at 06:09 PM
+-- Generation Time: Nov 26, 2017 at 08:47 AM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -21,6 +21,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `shopdb`
 --
+
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updatelog` (IN `uid` TEXT)  MODIFIES SQL DATA
+BEGIN
+INSERT INTO log (user) VALUES(uid);
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -52,14 +63,25 @@ CREATE TABLE `bag` (
   `qty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `bag`
+-- Table structure for table `log`
 --
 
-INSERT INTO `bag` (`prod_id`, `username`, `size`, `qty`) VALUES
-(2, '', 'S', 1),
-(2, '', 'M', 1),
-(1657367, '', 'L', 1);
+CREATE TABLE `log` (
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `log`
+--
+
+INSERT INTO `log` (`time`, `user`) VALUES
+('2017-11-25 06:46:15', 'sohaibalam67'),
+('2017-11-25 06:48:35', 'alam'),
+('2017-11-25 07:04:33', 'sohaibalam67');
 
 -- --------------------------------------------------------
 
@@ -81,17 +103,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `username`, `prod_id`, `size`, `qty`, `status`) VALUES
-('57360675', 'sohaibalam67', 1, 'M', 1, 1),
-('57360675', 'sohaibalam67', 1718307, '32', 2, 1),
-('57360675', 'sohaibalam67', 1945598, 'M', 1, 1),
-('5745067d', 'sohaibalam67', 2032668, 'M', 1, 2),
-('577b0686', 'sohaibalam67', 1718307, '32', 1, 1),
-('577b0686', 'sohaibalam67', 2004861, 'M', 1, 1),
-('57710689', 'sohaibalam67', 1100407, '32', 1, 2),
-('57710689', 'sohaibalam67', 2022840, 'M', 1, 2),
-('5735067f', 'sohaibalam67', 1585655, '32', 1, 0),
-('57160673', 'sohaibalam67', 1945598, 'M', 1, 1),
-('57180673', 'sohaibalam67', 1507004, '32', 1, 0);
+('57690684', 'sohaibalam67', 2, 'M', 1, 0),
+('576b0680', 'sohaibalam67', 3, 'M', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -116,13 +129,8 @@ CREATE TABLE `ord_addr` (
 --
 
 INSERT INTO `ord_addr` (`order_id`, `pincode`, `phone`, `town`, `dist`, `state`, `name`, `addr`, `amt`) VALUES
-('57360675', 560060, 2147483647, 'kengeri', 'bangalore', 'karnataka', 'Sohaib Alam', 'sjbit boys hostel, sjbit', 5340),
-('5745067d', 560060, 2147483647, 'kengeri', 'bangalore', 'karnataka', 'ravi', 'sjbit boys hostel', 1631),
-('577b0686', 560060, 2147483647, 'kengeri', 'bangalore', 'karnataka', 'Sohaib Alam', 'sjbit', 3856),
-('57710689', 560060, 888888, 'kengeri', 'bangalore', 'karnataka', 'Sohaib Alam', 'bgs', 2637),
-('5735067f', 560060, 666666, 'kengeri', 'bangalore', 'karnataka', 'sohaib', 'kengeribangalorekarnataka', 1721),
-('57160673', 560060, 2147483647, 'kengeri', 'bangalore', 'karnataka', 'sohaib alam', 'sjbit boys hostelkengeribangalorekarnataka', 3179),
-('57180673', 560060, 333333, 'kengeri', 'bangalore', 'karnataka', 'sohaib alam', 'sjbit boys hostel , kengeri , bangalore , karnataka', 1059);
+('57690684', 560060, 2147483647, 'kengeri', 'bangalore', 'karnataka', 'sohaib alam', 'sjbit hostel , kengeri , bangalore , karnataka', 848),
+('576b0680', 4545, 45454, 'sdsdsa', 'sdsad', 'sdsd', 'sds', 'aaa , sdsdsa , sdsad , sdsd', 954);
 
 --
 -- Triggers `ord_addr`
@@ -249,9 +257,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`name`, `username`, `password`, `picture`, `gender`, `phone`) VALUES
 ('Sohaib Alam', 'sohaibalam67', 'sohaib123', '56b715a784cae9774699840ff243dad7.jpg', 'Male', 7090157625),
-('Sohaib', 'alam', 'alam', 'c9faf3b2c602ffe0c89bf139e7e93a0c.jpg', 'Male', 8867981670),
-('mavrix', 'bot', 'bot', '1fb0dd726a3f5c0b193da1c1e9b75a33.jpg', 'Male', 8867981670),
-('sddsds', 'test', 'test', '52feef69e54a151d6cc3a0f6f7953758.jpg', 'Male', 45454);
+('Sohaib', 'alam', 'alam', 'c9faf3b2c602ffe0c89bf139e7e93a0c.jpg', 'Male', 8867981670);
 
 --
 -- Indexes for dumped tables

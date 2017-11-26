@@ -75,6 +75,16 @@ $conn=mysqli_connect('localhost','root','','shopdb');
       border: 1px solid rgba(0,0,0,0.1);
     }
 	</style>
+
+  <script type="text/javascript">
+    <?php
+      if(isset($_GET["stat"])){
+        if($_GET["stat"]==1){
+          echo "alert('Your order is placed sucessfully.')";
+        }
+      }
+    ?>
+  </script>
 </head>
 <body>
 

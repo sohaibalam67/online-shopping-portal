@@ -42,7 +42,7 @@ $conn=mysqli_connect('localhost','root','','shopdb');
 
 
 
-   mysqli_close($conn);
+   
 
 
 if($_POST["username"]==$uname && $_POST["password"]==$pass){
@@ -51,9 +51,16 @@ if($_POST["username"]==$uname && $_POST["password"]==$pass){
 $_SESSION["user"] = $uname;
 $_SESSION["name"] = $name;
 
+$log = "CALL updatelog('$uname')";
+$result_log = mysqli_query( $conn, $log);
+
+
 		header("Location: profile.php");
 }else{
-      header("Location: login.php");
+      header("Location: login.php?e=1");
 die();
-}}
+}
+
+mysqli_close($conn);
+}
 ?>

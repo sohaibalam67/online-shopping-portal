@@ -39,9 +39,9 @@ $conn=mysqli_connect('localhost','root','','shopdb');
    
    mysqli_close($conn);
 
-   header("Location: login.php");
+   header("Location: login.php?e=2");
    die();
    }}
-   header("Location: login.php");
+   header("Location: login.php?e=3");
 
 ?>
