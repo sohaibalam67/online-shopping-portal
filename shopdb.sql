@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2017 at 08:47 AM
+-- Generation Time: Nov 29, 2017 at 11:39 AM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -81,7 +81,16 @@ CREATE TABLE `log` (
 INSERT INTO `log` (`time`, `user`) VALUES
 ('2017-11-25 06:46:15', 'sohaibalam67'),
 ('2017-11-25 06:48:35', 'alam'),
-('2017-11-25 07:04:33', 'sohaibalam67');
+('2017-11-25 07:04:33', 'sohaibalam67'),
+('2017-11-26 14:10:07', 'sohaibalam67'),
+('2017-11-26 19:53:17', 'sohaibalam67'),
+('2017-11-29 08:34:08', 'sohaibalam67'),
+('2017-11-29 09:42:49', 'sohaibalam67'),
+('2017-11-29 10:12:53', 'alam'),
+('2017-11-29 10:14:57', 'sohaibalam67'),
+('2017-11-29 10:26:22', 'sohaibalam67'),
+('2017-11-29 10:32:16', 'alam'),
+('2017-11-29 10:32:23', 'sohaibalam67');
 
 -- --------------------------------------------------------
 
@@ -103,8 +112,11 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `username`, `prod_id`, `size`, `qty`, `status`) VALUES
-('57690684', 'sohaibalam67', 2, 'M', 1, 0),
-('576b0680', 'sohaibalam67', 3, 'M', 1, 0);
+('578e068e', 'sohaibalam67', 2050192, 'M', 1, 1),
+('57610681', 'sohaibalam67', 1845173, 'M', 1, 1),
+('1f15039f', 'alam', 1945591, 'L', 1, 1),
+('1f15039f', 'alam', 822672, '32', 1, 0),
+('1f15039f', 'alam', 875753, 'L', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -115,7 +127,7 @@ INSERT INTO `orders` (`order_id`, `username`, `prod_id`, `size`, `qty`, `status`
 CREATE TABLE `ord_addr` (
   `order_id` text NOT NULL,
   `pincode` int(11) NOT NULL,
-  `phone` int(11) NOT NULL,
+  `phone` bigint(20) NOT NULL,
   `town` text NOT NULL,
   `dist` text NOT NULL,
   `state` text NOT NULL,
@@ -129,8 +141,9 @@ CREATE TABLE `ord_addr` (
 --
 
 INSERT INTO `ord_addr` (`order_id`, `pincode`, `phone`, `town`, `dist`, `state`, `name`, `addr`, `amt`) VALUES
-('57690684', 560060, 2147483647, 'kengeri', 'bangalore', 'karnataka', 'sohaib alam', 'sjbit hostel , kengeri , bangalore , karnataka', 848),
-('576b0680', 4545, 45454, 'sdsdsa', 'sdsad', 'sdsd', 'sds', 'aaa , sdsdsa , sdsad , sdsd', 954);
+('578e068e', 560060, 7090157625, 'Kengeri', 'Bangalore', 'Karnataka', 'Sohaib Alam', 'Room no 215, Block 1, Sjbit boys hostel, sjbit, bgs health and education city , Kengeri , Bangalore , Karnataka', 3603),
+('57610681', 823001, 7090157625, 'Gaya', 'Gaya', 'Bihar', 'Sarwar Alam', 'New Karimganj, Road no. 2, Near Gaya High School , Gaya , Gaya , Bihar', 2448),
+('1f15039f', 560060, 8867981670, 'Kengeri', 'Bangalore', 'Bangalore', 'Ravi Raman', 'Room no. 215, Block 1, sjbit boys hostel, sjbit , Kengeri , Bangalore , Bangalore', 9530);
 
 --
 -- Triggers `ord_addr`
