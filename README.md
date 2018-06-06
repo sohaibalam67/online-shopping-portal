@@ -1,5 +1,6 @@
 # online shopping portal
-A shopping portal where sellers can sell their products, people can buy them and track their orders. (Under development)
+A shopping portal where sellers can sell their products, people can buy them and track their orders. (Under development).
+
 The e commerce portal was made using php & sql and has pretty minimal frontend design.
 
 ## Requirements
